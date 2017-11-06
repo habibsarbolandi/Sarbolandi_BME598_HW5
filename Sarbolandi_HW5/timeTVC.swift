@@ -12,7 +12,9 @@ class timeTVC: UITableViewController {
     
     var times = [String]()
     var reminders = [Reminder]()
-    //let dateFormat = NSD
+    let dateFormatter = DateFormatter()
+    let local = NSLocale.current
+    
     
    // let medDictionary: [String:Array<Med>] = [:]
     
@@ -24,7 +26,12 @@ class timeTVC: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        //self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //self.navigationItem.rightBarButtonItems![1] = self.editButtonItem
+        
+        dateFormatter.locale = local
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,7 +48,7 @@ class timeTVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return times.count
+        return reminders.count
     }
 
 
@@ -49,7 +56,10 @@ class timeTVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "timeCell", for: indexPath)
 
         //let keywords = Array(medDictionary.keys)
-        cell.textLabel?.text = times[indexPath.row]
+        let currentReminder = reminders[indexPath.row]
+        cell.textLabel?.text = currentReminder.title
+        cell.detailTextLabel?.text = "Take at: " + dateFormatter.string(from: currentReminder.time as Date)
+        
 
         return cell
     }

@@ -87,7 +87,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pharmCell" textLabel="4AX-kc-zyu" detailTextLabel="rJk-hX-J3H" style="IBUITableViewCellStyleValue1" id="EbR-bs-2KX">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pharmCell" textLabel="4AX-kc-zyu" detailTextLabel="rJk-hX-J3H" style="IBUITableViewCellStyleSubtitle" id="EbR-bs-2KX">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EbR-bs-2KX" id="79U-MF-SkO">
@@ -95,16 +95,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4AX-kc-zyu">
-                                            <rect key="frame" x="16" y="12" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rJk-hX-J3H">
-                                            <rect key="frame" x="315" y="12" width="44" height="20.5"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rJk-hX-J3H">
+                                            <rect key="frame" x="16" y="25.5" width="33" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -118,7 +118,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Pharmacy Information" id="GnI-Lw-cId">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tKY-Y8-NIR"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tKY-Y8-NIR">
+                            <connections>
+                                <action selector="addPharm:" destination="0jR-O6-tQ4" id="QCd-Xa-yQh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Oe-XB-b9F" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -178,7 +182,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Weekly Schedule" id="Iep-0i-fcw"/>
                     <connections>
-                        <segue destination="8lI-cs-ehu" kind="show" identifier="cellSelected" id="eCi-jg-Maa"/>
+                        <segue destination="8lI-cs-ehu" kind="show" id="2XH-Bk-X8V"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QOX-v8-sWv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -194,7 +198,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="timeCell" textLabel="V9c-Ty-AWL" style="IBUITableViewCellStyleDefault" id="Y8O-La-CYn">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="timeCell" textLabel="V9c-Ty-AWL" detailTextLabel="rbE-Tv-dg7" style="IBUITableViewCellStyleSubtitle" id="Y8O-La-CYn">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y8O-La-CYn" id="Q7i-JD-XaG">
@@ -202,9 +206,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V9c-Ty-AWL">
-                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rbE-Tv-dg7">
+                                            <rect key="frame" x="16" y="25.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -217,10 +228,13 @@
                             <outlet property="delegate" destination="8lI-cs-ehu" id="RXT-Mc-40P"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="qrc-4G-54B">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="91R-4v-1s1"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J4S-O4-6rF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1449" y="398"/>
+            <point key="canvasLocation" x="1503" y="397"/>
         </scene>
         <!--Weekly Scedule-->
         <scene sceneID="MaE-qP-Tq9">

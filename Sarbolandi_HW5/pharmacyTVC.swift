@@ -11,6 +11,66 @@ import UIKit
 class pharmacyTVC: UITableViewController {
 
     var pharmacies = [Pharmacy]()
+    var newPharmName = ""
+    var newPharmAddress = ""
+    var newPharmNumber = ""
+    
+    @IBAction func addPharm(_ sender: Any) {
+        let cancelButton = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+        
+        let alertName = UIAlertController(title: "Pharmacy Name", message: "Please type the name of the pharmacy", preferredStyle: .alert)
+        let confirmName = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: ({
+            (_) in
+            
+            let alertAddress = UIAlertController(title: "Pharmacy Address", message: "Please type the address of the pharmacy", preferredStyle: .alert)
+            let confirmAddress = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: ({
+                (_) in
+                
+                let alertNumber = UIAlertController(title: "Pharmacy Phone Number", message: "Please type the number of the pharmacy (ex. 6231234567", preferredStyle: .alert)
+                let confirmNumber = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: ({
+                    (_) in
+                    
+                    if let numberField = alertNumber.textFields?[0] {
+                        self.newPharmNumber = numberField.text!
+                        self.pharmacies.append(Pharmacy(name: self.newPharmName, address: self.newPharmAddress, phoneNumber: self.newPharmNumber))
+                        self.tableView.reloadData()
+                    }
+                }))
+                alertNumber.addTextField(configurationHandler: ({
+                    (UITextField) in
+                    
+                    UITextField.placeholder = "Number of pharmacy"
+                }))
+                alertNumber.addAction(confirmNumber)
+                alertNumber.addAction(cancelButton)
+                self.present(alertNumber, animated: true, completion: nil)
+                
+                if let addressField = alertAddress.textFields?[0] {
+                    self.newPharmAddress = addressField.text!
+                }
+            }))
+            alertAddress.addTextField(configurationHandler: ({
+                (UITextField) in
+                
+                UITextField.placeholder = "Address of pharmacy"
+            }))
+            alertAddress.addAction(confirmAddress)
+            alertAddress.addAction(cancelButton)
+            self.present(alertAddress, animated: true, completion: nil)
+            
+            if let nameField = alertName.textFields?[0] {
+                self.newPharmName = nameField.text!
+            }
+        }))
+        alertName.addTextField(configurationHandler: ({
+            (UITextField) in
+            
+            UITextField.placeholder = "Name of Pharmacy"
+        }))
+        alertName.addAction(confirmName)
+        alertName.addAction(cancelButton)
+        self.present(alertName, animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +105,16 @@ class pharmacyTVC: UITableViewController {
 
         // Configure the cell...
         let currentPharm = pharmacies[indexPath.row]
+        
         cell.textLabel?.text = currentPharm.name
-        cell.detailTextLabel?.text = "Address: \(currentPharm.address) Phone Number: \(currentPharm.phoneNumber)"
+        
+        var phone = currentPharm.phoneNumber
+        
+        phone.insert("-", at: phone.index(phone.startIndex, offsetBy: 3))
+         phone.insert("-", at: phone.index(phone.startIndex, offsetBy: 7))
+        
+        cell.detailTextLabel?.numberOfLines = 2;
+        cell.detailTextLabel?.text = "Address: \(currentPharm.address)                                                               Phone Number: \(phone)"
         
         return cell
     }
@@ -60,17 +128,16 @@ class pharmacyTVC: UITableViewController {
     }
     */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            pharmacies.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.

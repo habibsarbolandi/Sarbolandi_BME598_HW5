@@ -10,7 +10,7 @@ import UIKit
 
 class weekTVC: UITableViewController {
     
-    var weekDays: [Int: Array<String>] = [:]
+    var weekDays: [Int: Array<Reminder>] = [:]
     var selectedRow = ""
     var selectedDay = [String]()
 
@@ -83,8 +83,8 @@ class weekTVC: UITableViewController {
         let day = Array(weekDays.keys)
         //selectedRow = day[indexPath.row]
         
-        let timesOfDays = Array(weekDays.values)
-        selectedDay = timesOfDays[indexPath.row]
+        //let timesOfDays = Array(weekDays.values)
+        //selectedDay = timesOfDays[indexPath.row]
         
         //call segue manually
         performSegue(withIdentifier: "cellSelected", sender: self)
