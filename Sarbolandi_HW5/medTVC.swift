@@ -24,15 +24,15 @@ class medTVC: UITableViewController {
     print("adding a med")
         let cancelButton = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
         
-        let alertName = UIAlertController(title: "Medication", message: "Type name of medication", preferredStyle: .alert)
+        let alertName = UIAlertController(title: "Medication", message: "Please type the name of the medication", preferredStyle: .alert)
         let confirmName = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: ({
             (_) in
             
-            let alertDosage = UIAlertController(title: "Dosage", message: "Type dosage of medication", preferredStyle: .alert)
+            let alertDosage = UIAlertController(title: "Dosage", message: "Please type the dosage of the medication (ex. 120, 250, 750)", preferredStyle: .alert)
             let confirmDosage = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: ({
                 (_) in
                 
-                let alertDaily = UIAlertController(title: "Daily Intake", message: "Type daily intake of medication", preferredStyle: .alert)
+                let alertDaily = UIAlertController(title: "Daily Intake", message: "Please type the number of times you take the medication", preferredStyle: .alert)
                 let confirmDaily = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: ({
                     (_) in
                     
@@ -45,7 +45,7 @@ class medTVC: UITableViewController {
                 alertDaily.addTextField(configurationHandler: ({
                     (UITextField) in
                     
-                    UITextField.placeholder = "Type how many times a day you take the medication"
+                    UITextField.placeholder = "Daily Intake of Medication"
                 }))
                 alertDaily.addAction(confirmDaily)
                 alertDaily.addAction(cancelButton)
@@ -58,7 +58,7 @@ class medTVC: UITableViewController {
             alertDosage.addTextField(configurationHandler: ({
                 (UITextField) in
                 
-                UITextField.placeholder = "Type Dosage of Medication"
+                UITextField.placeholder = "Dosage of Medication"
             }))
             alertDosage.addAction(confirmDosage)
             alertDosage.addAction(cancelButton)
@@ -71,7 +71,7 @@ class medTVC: UITableViewController {
         alertName.addTextField(configurationHandler: ({
             (UITextField) in
             
-            UITextField.placeholder = "Type Name of Medication"
+            UITextField.placeholder = "Name of Medication"
         }))
         alertName.addAction(confirmName)
         alertName.addAction(cancelButton)

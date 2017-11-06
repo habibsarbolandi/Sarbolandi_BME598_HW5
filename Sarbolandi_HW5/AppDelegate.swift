@@ -22,6 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let medVC = nav1VC.viewControllers[0] as! medTVC
         let nav2VC = tabVC.viewControllers![1] as! UINavigationController
         let weekVC = nav2VC.viewControllers[0] as! weekTVC
+        let nav3VC = tabVC.viewControllers![2] as! UINavigationController
+        let pharmVC = nav3VC.viewControllers[0] as! pharmacyTVC
+        
+        pharmVC.pharmacies.append(Pharmacy(name: "CVS", address: "35413 N. Via Traminto", phoneNumber: "6027088304"))
         
         medVC.meds.append(Med(name: "Ibuprofen", dosage: "250", daily: "2"))
         medVC.meds.append(Med(name: "Viagra", dosage: "125", daily: "1"))
