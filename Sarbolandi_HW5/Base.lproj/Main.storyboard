@@ -182,7 +182,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Weekly Schedule" id="Iep-0i-fcw"/>
                     <connections>
-                        <segue destination="8lI-cs-ehu" kind="show" id="2XH-Bk-X8V"/>
+                        <segue destination="8lI-cs-ehu" kind="show" identifier="cellSelected" id="2XH-Bk-X8V"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QOX-v8-sWv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -229,7 +229,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="qrc-4G-54B">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="91R-4v-1s1"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="91R-4v-1s1">
+                            <connections>
+                                <action selector="addButton:" destination="8lI-cs-ehu" id="HwQ-Y4-HmE"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J4S-O4-6rF" userLabel="First Responder" sceneMemberID="firstResponder"/>

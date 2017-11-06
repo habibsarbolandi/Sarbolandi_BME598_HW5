@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import EventKit
 
 class timeTVC: UITableViewController {
-    
     var times = [String]()
     var reminders = [Reminder]()
+    var medReminders = [MedReminder]()
     let dateFormatter = DateFormatter()
     let local = NSLocale.current
     
+    @IBAction func addButton(_ sender: Any) {
+        
+    }
     
    // let medDictionary: [String:Array<Med>] = [:]
     
@@ -28,7 +32,7 @@ class timeTVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         //self.navigationItem.rightBarButtonItems![1] = self.editButtonItem
         
-        dateFormatter.locale = local
+        dateFormatter.locale = NSLocale.current
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .short
         
@@ -48,7 +52,7 @@ class timeTVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return reminders.count
+        return medReminders.count
     }
 
 
@@ -56,11 +60,14 @@ class timeTVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "timeCell", for: indexPath)
 
         //let keywords = Array(medDictionary.keys)
-        let currentReminder = reminders[indexPath.row]
-        cell.textLabel?.text = currentReminder.title
-        cell.detailTextLabel?.text = "Take at: " + dateFormatter.string(from: currentReminder.time as Date)
+        //let currentReminder = reminders[indexPath.row]
+        //cell.textLabel?.text = currentReminder.title
+        //cell.detailTextLabel?.text = "Take at: " + dateFormatter.string(from: currentReminder.time as Date)
         
-
+        let currentReminder = medReminders[indexPath.row]
+        cell.textLabel?.text = currentReminder.name
+        cell.detailTextLabel?.text = "Take at: \(currentReminder.time)"
+        
         return cell
     }
 

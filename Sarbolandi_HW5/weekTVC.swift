@@ -10,9 +10,9 @@ import UIKit
 
 class weekTVC: UITableViewController {
     
-    var weekDays: [Int: Array<Reminder>] = [:]
-    var selectedRow = ""
-    var selectedDay = [String]()
+    var weekDays: [Int: Array<MedReminder>] = [:]
+    var selectedRow = 0
+    var selectedDay = [MedReminder]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,10 +81,11 @@ class weekTVC: UITableViewController {
        // print("In didSelectRowAt")
         //TODO: get cell information
         let day = Array(weekDays.keys)
+        selectedRow = day[indexPath.row]
         //selectedRow = day[indexPath.row]
         
-        //let timesOfDays = Array(weekDays.values)
-        //selectedDay = timesOfDays[indexPath.row]
+        let remindersOfDays = Array(weekDays.values)
+        selectedDay = remindersOfDays[indexPath.row]
         
         //call segue manually
         performSegue(withIdentifier: "cellSelected", sender: self)
@@ -94,9 +95,8 @@ class weekTVC: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        
         let destVC = segue.destination as! timeTVC
-        destVC.times = selectedDay
+        destVC.medReminders=selectedDay
     }
     
     /*

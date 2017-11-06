@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let medVC = nav1VC.viewControllers[0] as! medTVC
         let nav2VC = tabVC.viewControllers![1] as! UINavigationController
         let weekVC = nav2VC.viewControllers[0] as! weekTVC
+        let timeVC = weekVC
         let nav3VC = tabVC.viewControllers![2] as! UINavigationController
         let pharmVC = nav3VC.viewControllers[0] as! pharmacyTVC
         
@@ -31,15 +32,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         medVC.meds.append(Med(name: "Viagra", dosage: "125", daily: "1"))
         medVC.meds.append(Med(name: "Amicilin", dosage: "75", daily: "5"))
         medVC.meds.append(Med(name: "Oxycodone", dosage: "10", daily: "2"))
-    
+        
         weekVC.weekDays = [
-            0: [],
-            1: [],
-            2: [],
-            3: [],
-            4: [],
-            5: [],
-            6: []
+            0: [MedReminder(name: "mimi", time: "3:34")],
+            1: [MedReminder(name: "mimi", time: "3:34")],
+            2: [MedReminder(name: "mimi", time: "3:34")],
+            3: [MedReminder(name: "mimi", time: "3:34")],
+            4: [MedReminder(name: "mimi", time: "3:34")],
+            5: [MedReminder(name: "mimi", time: "3:34")],
+            6: [MedReminder(name: "mimi", time: "3:34")]
         ]
         
         return true
