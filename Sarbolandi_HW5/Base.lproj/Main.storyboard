@@ -133,9 +133,7 @@
         <scene sceneID="s1f-fc-pOI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GFs-RY-WLI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Meds" id="pRy-pR-bD3">
-                        <color key="badgeColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Meds" id="pRy-pR-bD3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="14a-1s-hS4">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -246,9 +244,7 @@
         <scene sceneID="MaE-qP-Tq9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="T3j-aH-198" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Weekly Scedule" id="oqC-g5-EdU">
-                        <color key="badgeColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Weekly Scedule" id="oqC-g5-EdU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7O4-84-V8l">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -267,9 +263,7 @@
         <scene sceneID="2lY-Zz-wUu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jDA-NW-Dzh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pharmacy" id="Uw0-d3-ehL">
-                        <color key="badgeColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Pharmacy" id="Uw0-d3-ehL"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ATa-vg-72t">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

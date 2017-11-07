@@ -148,6 +148,7 @@ class medTVC: UITableViewController {
             // Delete the row from the data source
             //print("deleting med")
             meds.remove(at: indexPath.row)
+            medNames.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
