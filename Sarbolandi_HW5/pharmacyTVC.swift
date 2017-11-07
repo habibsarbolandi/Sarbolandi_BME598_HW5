@@ -111,7 +111,7 @@ class pharmacyTVC: UITableViewController {
         var phone = currentPharm.phoneNumber
         
         phone.insert("-", at: phone.index(phone.startIndex, offsetBy: 3))
-         phone.insert("-", at: phone.index(phone.startIndex, offsetBy: 7))
+        phone.insert("-", at: phone.index(phone.startIndex, offsetBy: 7))
         
         cell.detailTextLabel?.numberOfLines = 2;
         cell.detailTextLabel?.text = "Address: \(currentPharm.address)                                                               Phone Number: \(phone)"

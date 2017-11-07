@@ -8,10 +8,11 @@
 
 import UIKit
 
+var weekDays: [Int: Array<MedReminder>] = [:]
+var selectedRow = 0
+
 class weekTVC: UITableViewController {
     
-    var weekDays: [Int: Array<MedReminder>] = [:]
-    var selectedRow = 0
     var selectedDay = [MedReminder]()
 
     override func viewDidLoad() {
@@ -49,22 +50,22 @@ class weekTVC: UITableViewController {
         if day[indexPath.row] == 0 {
             cell.textLabel?.text = "Monday"
         }
-        if day[indexPath.row] == 1 {
+        else if day[indexPath.row] == 1 {
             cell.textLabel?.text = "Tuesday"
         }
-        if day[indexPath.row] == 2 {
+        else if day[indexPath.row] == 2 {
             cell.textLabel?.text = "Wednesday"
         }
-        if day[indexPath.row] == 3 {
+        else if day[indexPath.row] == 3 {
             cell.textLabel?.text = "Thursday"
         }
-        if day[indexPath.row] == 4 {
+        else if day[indexPath.row] == 4 {
             cell.textLabel?.text = "Friday"
         }
-        if day[indexPath.row] == 5 {
+        else if day[indexPath.row] == 5 {
             cell.textLabel?.text = "Saturday"
         }
-        if day[indexPath.row] == 6 {
+        else if day[indexPath.row] == 6 {
             cell.textLabel?.text = "Sunday"
         }
         

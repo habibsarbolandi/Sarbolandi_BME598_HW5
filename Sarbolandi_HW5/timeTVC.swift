@@ -9,9 +9,10 @@
 import UIKit
 import EventKit
 
+var medNames = ["Ibuprofen","Viagra","Amicilin","Oxycodone"]
+
 class timeTVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     var medReminders = [MedReminder]()
-    var medNames = ["Ibuprofen","Viagra","Amicilin","Oxycodone"]
     var currentMed = ""
     var row: Int = 0
     
@@ -32,7 +33,7 @@ class timeTVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow: Int, inComponent: Int) {
-        currentMed = self.medNames[didSelectRow]
+         currentMed = medNames[didSelectRow]
     }
     
     @IBAction func addButton(_ sender: Any) {
@@ -47,23 +48,29 @@ class timeTVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSour
         let cancelButton = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
         let confirmName = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: ({
             (_) in
-            self.medReminders.append(MedReminder(name: self.currentMed, time: "3:00 Am"))
-            self.tableView.reloadData()
+            if self.currentMed == "" {
+                self.currentMed = medNames[0]
+            }
             
             let alertTime = UIAlertController(title: "Time", message: "Pleace choose a time to take the medication", preferredStyle: UIAlertControllerStyle.alert)
+            
             let confirmTime = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: ({
                 (_) in
                 
+                self.medReminders.append(MedReminder(name: self.currentMed, time: "3:00 Am"))
+                self.tableView.reloadData()
+                weekDays.updateValue(self.medReminders, forKey: selectedRow)
             }))
-            
             alertTime.addAction(cancelButton)
             alertTime.addAction(confirmTime)
             self.present(alertTime, animated: true, completion: nil)
+            
         }))
         
         alertName.addAction(cancelButton)
         alertName.addAction(confirmName)
         self.present(alertName, animated: true, completion: nil)
+        
     }
     
    // let medDictionary: [String:Array<Med>] = [:]
@@ -125,17 +132,18 @@ class timeTVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSour
     }
     */
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            medReminders.remove(at: indexPath.row)
+            weekDays.updateValue(self.medReminders, forKey: selectedRow)
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.

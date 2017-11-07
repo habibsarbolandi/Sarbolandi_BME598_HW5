@@ -12,13 +12,14 @@ import UIKit
 //    func read(med: Med)
 //}
 
+var newMedName = ""
+var newMedDosage = ""
+var newMedDaily = ""
+
 class medTVC: UITableViewController {
 
     var meds = [Med]()
     //var addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addMed))
-    var newMedName = ""
-    var newMedDosage = ""
-    var newMedDaily = ""
     
     @IBAction func addButton(_ sender: Any) {
     print("adding a med")
@@ -37,9 +38,10 @@ class medTVC: UITableViewController {
                     (_) in
                     
                     if let dailyField = alertDaily.textFields?[0] {
-                        self.newMedDaily = dailyField.text!
-                        self.meds.append(Med(name: self.newMedName, dosage: self.newMedDosage, daily: self.newMedDaily))
+                        newMedDaily = dailyField.text!
+                        self.meds.append(Med(name: newMedName, dosage: newMedDosage, daily: newMedDaily))
                         self.tableView.reloadData()
+                        medNames.append(newMedName)
                     }
                 }))
                 alertDaily.addTextField(configurationHandler: ({
@@ -52,7 +54,7 @@ class medTVC: UITableViewController {
                 self.present(alertDaily, animated: true, completion: nil)
                 
                 if let dosageField = alertDosage.textFields?[0] {
-                    self.newMedDosage = dosageField.text!
+                    newMedDosage = dosageField.text!
                 }
             }))
             alertDosage.addTextField(configurationHandler: ({
@@ -65,7 +67,7 @@ class medTVC: UITableViewController {
             self.present(alertDosage, animated: true, completion: nil)
             
             if let nameField = alertName.textFields?[0] {
-                self.newMedName = nameField.text!
+                newMedName = nameField.text!
             }
         }))
         alertName.addTextField(configurationHandler: ({
