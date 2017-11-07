@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let medVC = nav1VC.viewControllers[0] as! medTVC
         let nav2VC = tabVC.viewControllers![1] as! UINavigationController
         let weekVC = nav2VC.viewControllers[0] as! weekTVC
-        let timeVC = weekVC
         let nav3VC = tabVC.viewControllers![2] as! UINavigationController
         let pharmVC = nav3VC.viewControllers[0] as! pharmacyTVC
         

@@ -9,15 +9,53 @@
 import UIKit
 import EventKit
 
-class timeTVC: UITableViewController {
-    var times = [String]()
-    var reminders = [Reminder]()
+class timeTVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     var medReminders = [MedReminder]()
+    var medNames = ["Ibuprofen","Viagra","Amicilin","Oxycodone"]
+    var currentMed = ""
+    var row = 0
+    
+    var reminders = [Reminder]()
     let dateFormatter = DateFormatter()
     let local = NSLocale.current
     
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return medNames.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return medNames[row]
+    }
+    
     @IBAction func addButton(_ sender: Any) {
+        let medNameVC = UIViewController()
+        medNameVC.preferredContentSize = CGSize(width: 250, height: 150)
+        let pickVC = UIPickerView(frame: CGRect(x: 0, y: 0, width: 250, height: 150))
+        pickVC.dataSource = self
+        pickVC.delegate = self
+        medNameVC.view.addSubview(pickVC)
+        let alertName = UIAlertController(title: "Medication list", message: "Please choose a medication", preferredStyle: UIAlertControllerStyle.alert)
+        alertName.setValue(medNameVC, forKey: "contentViewController")
+        let cancelButton = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+        let confirmName = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: ({
+            (_) in
+            func pickerView(pickerView: UIPickerView, didSelectRow: Int, inComponent: Int) {
+                self.row = didSelectRow
+            }
+            self.currentMed = self.medNames[self.row]
+            self.medReminders.append(MedReminder(name: self.currentMed, time: "3:00 Am"))
+            self.tableView.reloadData()
+        }))
+        alertName.addAction(cancelButton)
+        alertName.addAction(confirmName)
+        self.present(alertName, animated: true, completion: nil)
         
+        
+    
     }
     
    // let medDictionary: [String:Array<Med>] = [:]
