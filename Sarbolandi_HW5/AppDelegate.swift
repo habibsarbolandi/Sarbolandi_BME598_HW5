@@ -33,13 +33,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         medVC.meds.append(Med(name: "Oxycodone", dosage: "10", daily: "2"))
         
         weekDays = [
-            0: [MedReminder(name: "Amicilin", time: "12:00")],
+            0: [MedReminder(name: "Amicilin", time: "12:00 PM")],
             1: [],
-            2: [MedReminder(name: "Viagra", time: "8:00")],
-            3: [MedReminder(name: "Oxycodone", time: "7:00")],
+            2: [MedReminder(name: "Viagra", time: "8:00 AM")],
+            3: [MedReminder(name: "Oxycodone", time: "7:00 AM")],
             4: [],
             5: [],
-            6: [MedReminder(name: "Ibuprofen", time: "3:34")]
+            6: [MedReminder(name: "Ibuprofen", time: "3:34 PM")]
         ]
         
         return true

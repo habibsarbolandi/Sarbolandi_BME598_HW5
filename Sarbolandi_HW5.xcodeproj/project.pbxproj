@@ -17,6 +17,7 @@
 		831CEE681FA0FCF800D96650 /* weekTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831CEE671FA0FCF800D96650 /* weekTVC.swift */; };
 		831CEE6C1FA109F100D96650 /* timeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831CEE6B1FA109F100D96650 /* timeTVC.swift */; };
 		831E1A671FB1224600EF0539 /* MedReminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831E1A661FB1224600EF0539 /* MedReminder.swift */; };
+		834D9E6B1FB17CCD00D43AA2 /* timePD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834D9E6A1FB17CCD00D43AA2 /* timePD.swift */; };
 		837B54241FAFEBEB0020A61D /* pharmacyTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837B54231FAFEBEB0020A61D /* pharmacyTVC.swift */; };
 		837B54261FAFF1490020A61D /* Pharmacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837B54251FAFF1490020A61D /* Pharmacy.swift */; };
 		837B54281FB01E250020A61D /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837B54271FB01E250020A61D /* Reminder.swift */; };
@@ -49,6 +50,7 @@
 		831CEE671FA0FCF800D96650 /* weekTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weekTVC.swift; sourceTree = "<group>"; };
 		831CEE6B1FA109F100D96650 /* timeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeTVC.swift; sourceTree = "<group>"; };
 		831E1A661FB1224600EF0539 /* MedReminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedReminder.swift; sourceTree = "<group>"; };
+		834D9E6A1FB17CCD00D43AA2 /* timePD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timePD.swift; sourceTree = "<group>"; };
 		837B54231FAFEBEB0020A61D /* pharmacyTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pharmacyTVC.swift; sourceTree = "<group>"; };
 		837B54251FAFF1490020A61D /* Pharmacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pharmacy.swift; sourceTree = "<group>"; };
 		837B54271FB01E250020A61D /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				831E1A661FB1224600EF0539 /* MedReminder.swift */,
 				831CEE671FA0FCF800D96650 /* weekTVC.swift */,
 				831CEE6B1FA109F100D96650 /* timeTVC.swift */,
+				834D9E6A1FB17CCD00D43AA2 /* timePD.swift */,
 				837B54251FAFF1490020A61D /* Pharmacy.swift */,
 				837B54231FAFEBEB0020A61D /* pharmacyTVC.swift */,
 				83036BA71F9EFAD100089D7A /* Assets.xcassets */,
@@ -236,6 +239,7 @@
 				837B54261FAFF1490020A61D /* Pharmacy.swift in Sources */,
 				837B54241FAFEBEB0020A61D /* pharmacyTVC.swift in Sources */,
 				831CEE681FA0FCF800D96650 /* weekTVC.swift in Sources */,
+				834D9E6B1FB17CCD00D43AA2 /* timePD.swift in Sources */,
 				837B54281FB01E250020A61D /* Reminder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

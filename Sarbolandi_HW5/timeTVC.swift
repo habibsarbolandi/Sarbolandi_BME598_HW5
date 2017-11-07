@@ -10,36 +10,77 @@ import UIKit
 import EventKit
 
 var medNames = ["Ibuprofen","Viagra","Amicilin","Oxycodone"]
+let pickVC2Data = [["1","2","3","4","5","6","7","8","9","10","11","12"],["00","05","10","15","20","25","30","35","40","45","50","55"],["AM","PM"]]
 
 class timeTVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     var medReminders = [MedReminder]()
     var currentMed = ""
     var row: Int = 0
     
-    var reminders = [Reminder]()
-    let dateFormatter = DateFormatter()
-    let local = NSLocale.current
+    //var reminders = [Reminder]()
+    //let dateFormatter = DateFormatter()
+    //let local = NSLocale.current
+    
+    let medNameVC = UIViewController()
+    let pickVC = UIPickerView(frame: CGRect(x: 0, y: 0, width: 250, height: 150))
+    let medTimeVC = UIViewController()
+    let pickVC2 = UIPickerView(frame: CGRect(x: 0, y: 0, width: 250, height: 150))
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        if pickerView == pickVC {
+            return 1
+        }
+        if pickerView == pickVC2 {
+            return 3
+        }
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return medNames.count
+        if pickerView == pickVC {
+            return medNames.count
+        }
+        if pickerView == pickVC2 {
+            if component == 0 {
+                return pickVC2Data[0].count
+            }
+            if component == 1 {
+                return pickVC2Data[1].count
+            }
+            if component == 2 {
+                return pickVC2Data[2].count
+            }
+        }
+        return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return medNames[row]
+        if pickerView == pickVC {
+            return medNames[row]
+        }
+        if pickerView == pickVC2 {
+            if component == 0 {
+                return pickVC2Data[0][row]
+            }
+            if component == 1 {
+                return pickVC2Data[1][row]
+            }
+            if component == 2 {
+                return pickVC2Data[2][row]
+            }
+            //return pickVC2Data[component][row]
+        }
+        return ""
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow: Int, inComponent: Int) {
-         currentMed = medNames[didSelectRow]
+        if pickerView == pickVC {
+            currentMed = medNames[didSelectRow]
+        }
     }
     
     @IBAction func addButton(_ sender: Any) {
-        let medNameVC = UIViewController()
         medNameVC.preferredContentSize = CGSize(width: 250, height: 150)
-        let pickVC = UIPickerView(frame: CGRect(x: 0, y: 0, width: 250, height: 150))
         pickVC.dataSource = self
         pickVC.delegate = self
         medNameVC.view.addSubview(pickVC)
@@ -52,7 +93,13 @@ class timeTVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSour
                 self.currentMed = medNames[0]
             }
             
+            self.medTimeVC.preferredContentSize = CGSize(width: 250, height: 150)
+            self.pickVC2.dataSource = self
+            self.pickVC2.delegate = self
+            self.medTimeVC.view.addSubview(self.pickVC2)
+            
             let alertTime = UIAlertController(title: "Time", message: "Pleace choose a time to take the medication", preferredStyle: UIAlertControllerStyle.alert)
+            alertTime.setValue(self.medTimeVC, forKey: "contentViewController")
             
             let confirmTime = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: ({
                 (_) in
