@@ -49,6 +49,7 @@ class timeTVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSour
             self.currentMed = self.medNames[self.row]
             self.medReminders.append(MedReminder(name: self.currentMed, time: "3:00 Am"))
             self.tableView.reloadData()
+            
         }))
         alertName.addAction(cancelButton)
         alertName.addAction(confirmName)
