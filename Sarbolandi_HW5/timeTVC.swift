@@ -16,6 +16,10 @@ class timeTVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSour
     var medReminders = [MedReminder]()
     var currentMed = ""
     var row: Int = 0
+    var timeHour = ""
+    var timeMinutes = ""
+    var timeDay = ""
+    var medTime = ""
     
     //var reminders = [Reminder]()
     //let dateFormatter = DateFormatter()
@@ -77,6 +81,17 @@ class timeTVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSour
         if pickerView == pickVC {
             currentMed = medNames[didSelectRow]
         }
+        if pickerView == pickVC2 {
+            if inComponent == 0 {
+                timeHour = pickVC2Data[0][didSelectRow]
+            }
+            if inComponent == 1 {
+                timeMinutes = pickVC2Data[1][didSelectRow]
+            }
+            if inComponent == 2 {
+                timeDay = pickVC2Data[2][didSelectRow]
+            }
+        }
     }
     
     @IBAction func addButton(_ sender: Any) {
@@ -103,8 +118,19 @@ class timeTVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSour
             
             let confirmTime = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default, handler: ({
                 (_) in
+                if self.timeHour == "" {
+                    self.timeHour = "1"
+                }
+                if self.timeMinutes == "" {
+                    self.timeMinutes = "00"
+                }
+                if self.timeDay == "" {
+                    self.timeDay = "AM"
+                }
                 
-                self.medReminders.append(MedReminder(name: self.currentMed, time: "3:00 Am"))
+                self.medTime = self.timeHour+":"+self.timeMinutes+" "+self.timeDay
+                
+                self.medReminders.append(MedReminder(name: self.currentMed, time: self.medTime))
                 self.tableView.reloadData()
                 weekDays.updateValue(self.medReminders, forKey: selectedRow)
             }))
@@ -131,9 +157,9 @@ class timeTVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSour
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         //self.navigationItem.rightBarButtonItems![1] = self.editButtonItem
         
-        dateFormatter.locale = NSLocale.current
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .short
+        //DateFormatter.locale = NSLocale.current
+        //dateFormatter.dateStyle = .medium
+        //dateFormatter.timeStyle = .short
         
     }
 
